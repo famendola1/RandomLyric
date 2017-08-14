@@ -47,13 +47,20 @@ if __name__ == "__main__":
         used_lyrics = set()
         while True:
             lyric = ""
+            no_more = False
             while True:
                 index = random.randint(0, len(all_lines) - 1)
                 lyric = all_lines[index]
                 if lyric not in used_lyrics:
                     used_lyrics.add(lyric)
+                    print(lyric)
                     break
-            print(lyric)
+                else:
+                    print("No More Lyrics")
+                    no_more = True
+                    break
+            if no_more:
+                break
             new_lyric = input("Another Lyric? (y/n): ")
             if new_lyric == "n":
                 break
